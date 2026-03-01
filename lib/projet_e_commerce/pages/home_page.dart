@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projet/projet_e_commerce/const/images.dart';
 import 'package:projet/projet_e_commerce/myWidgets/image_caroussel.dart';
+import 'package:projet/projet_e_commerce/myWidgets/image_categorie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,6 +24,32 @@ class _MyWidgetState extends State<HomePage> {
         children: [
           //Carrousel
           ImageCarrousel(),
+          Text("Categories"),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List.generate(listeImageCategories.length, (index) {
+                return ImageCategorie(
+                  titre: titreListeImageCategories[index],
+                  urlImage: listeImageCategories[index],
+                );
+              }),
+            ),
+          ),
+          Text("Marques"),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List.generate(listeImageCategories.length, (index) {
+                return ImageCategorie(
+                  titre: titreListeImageCategories[index],
+                  urlImage: listeImageCategories[index],
+                );
+              }),
+            ),
+          ),
         ],
       ),
     );

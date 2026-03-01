@@ -4,3 +4,25 @@ List<String> listeImageCarrousel = [
   "assets/img/carousel3.jpg",
   "assets/img/carousel4.png",
 ];
+List<String> listeImageCategories = [
+  "assets/img/catbeauty.jpg",
+  "assets/img/CatFurniture.jpg",
+  "assets/img/CatLaptops.png",
+  "assets/img/CatPhones.png",
+  "assets/img/CatShoes.jpg",
+  "assets/img/CatWatches.jpg",
+];
+List<String> titreListeImageCategories = [
+  "Beauté",
+  "Furniture",
+  "Laptops",
+  "smartPhones",
+  "Chaussures",
+  "SmartWatches",
+];
+List<String> listeImageMarques = [
+  "assets/img/carousel1.png",
+  "assets/img/carousel2.jpeg",
+  "assets/img/carousel3.jpg",
+  "assets/img/carousel4.png",
+];
