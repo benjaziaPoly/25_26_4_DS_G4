@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:projet/projet_e_commerce/data/list_produits.dart';
 import 'package:projet/projet_e_commerce/model/class_produit.dart';
+import 'package:projet/projet_e_commerce/model/class_produit_panier.dart';
+import 'package:projet/projet_e_commerce/myWidgets/mon_menu.dart';
+import 'package:projet/projet_e_commerce/provider/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProduitDetailPage extends StatefulWidget {
-  Produit produit = Produit(
-    id: "",
-    title: "",
-    description: "",
-    price: 0.0,
-    imageUrl: "",
-    brand: "",
-    produitCategoryName: "",
-    quantity: 0,
-  );
+  // Produit produit = Produit(
+  //   id: "",
+  //   title: "",
+  //   description: "",
+  //   price: 0.0,
+  //   imageUrl: "",
+  //   brand: "",
+  //   produitCategoryName: "",
+  //   quantity: 0,
+  // );
 
-  ProduitDetailPage({super.key, required this.produit});
+  ProduitDetailPage({
+    super.key,
+    //, required this.produit
+  });
 
   @override
   State<ProduitDetailPage> createState() => _MyWidgetState();
@@ -22,7 +30,17 @@ class ProduitDetailPage extends StatefulWidget {
 class _MyWidgetState extends State<ProduitDetailPage> {
   @override
   Widget build(BuildContext context) {
-    Produit productInfo = widget.produit;
+    final panier = Provider.of<PanierProvider>(context);
+    final dynamic param = ModalRoute.of(context)!.settings.arguments;
+    int indexProduit;
+
+    if (param == null || param.toString().isEmpty) {
+      indexProduit = 0;
+    } else {
+      indexProduit = int.parse(param.toString());
+    }
+
+    Produit productInfo = AllProductData.Produits[indexProduit];
 
     return Scaffold(
       appBar: AppBar(title: Text(productInfo.title)),
@@ -82,7 +100,18 @@ class _MyWidgetState extends State<ProduitDetailPage> {
                     Expanded(
                       flex: 2,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          panier.ajouterProduit(
+                            ProduitPanier(
+                              id: productInfo.id,
+                              title: productInfo.title,
+                              price: productInfo.price,
+                              imageUrl: productInfo.imageUrl,
+                              description: productInfo.description,
+                              quantite: 1,
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pink,
                           foregroundColor: Colors.white,

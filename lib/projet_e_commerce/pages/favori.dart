@@ -12,7 +12,7 @@ class _MyWidgetState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Page Panier"),
+        title: Text("Page Favorite"),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),

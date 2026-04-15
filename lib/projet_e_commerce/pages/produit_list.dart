@@ -25,10 +25,22 @@ class _MyWidgetState extends State<ListProduitPage> {
         children: List.generate(AllProductData.Produits.length, (index) {
           return InkWell(
             onTap: () {
-              ProduitDetailPage(produit:AllProductData.Produits[index]);
+              /*
+                A. le passage ( Index, produit) => Constructeur de la classe DetailProduit
+                B. le passage ( Index, produit) => Comme Parametres lors de la naviagtion
+                Navigator : Arguments ( index, produit)
+              */
+              Navigator.pushNamed(
+                context,
+                "detailProduit",
+                arguments:index
+              );
+              //=> creer , nommer les routes
+
+              //ProduitDetailPage(produit: AllProductData.Produits[index]);
               //Navigation
             },
-            child: WidgetProduit(produit: AllProductData.Produits[index]),
+           // child: WidgetProduit(produit: AllProductData.Produits[index]),
           );
         }),
       ),
