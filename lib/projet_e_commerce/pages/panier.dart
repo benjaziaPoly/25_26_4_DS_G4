@@ -9,9 +9,12 @@ class PanierPage extends StatelessWidget {
   PanierPage({super.key});
   @override
   Widget build(BuildContext context) {
-    final List<ProduitPanier> contenuPanier = Provider.of<PanierProvider>(
-      context,
-    ).Panier;
+    // final List<ProduitPanier> contenuPanier = Provider.of<PanierProvider>(
+    //   context,
+    // ).Panier;
+    final List<ProduitPanier> contenuPanier = context
+        .watch<PanierProvider>()
+        .Panier;
     print("xxxTAILLE PANIER=" + contenuPanier.length.toString());
     print("xxxTAILLE PANIER= ${contenuPanier.length}");
 

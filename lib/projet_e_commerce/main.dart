@@ -47,3 +47,14 @@ class EcommerceApp extends StatelessWidget {
     );
   }
 }
+//opéartion INPUT/OUTPUT
+// recupération des data:
+// web : API / SGBD / images
+// Image locale Assets / Network / Ficheir /localstorage: FICHIER
+//==> Asynchrone
+
+// Future<bool> getData() async {
+//   --
+//   -- await ......
+//   -- await ....
+// }
